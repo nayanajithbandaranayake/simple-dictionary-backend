@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const fetch = require("node-fetch");
 const cors = require("cors");
@@ -17,7 +18,8 @@ app.get("/", async (req, res) => {
   const data = await response.json();
   res.status(200).json(data);
 });
+const PORT = process.env.PORT || 5000;
 
-app.listen(5000, () => {
-  console.log("Server is listening on port 5000...");
+app.listen(PORT, () => {
+  console.log(`Server is listening on port ${PORT}...`);
 });
